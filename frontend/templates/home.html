@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Management System</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1523240795612-9a054b0db644');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Navbar */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 60px;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(8px);
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#ffd369;
+}
+
+/* Hero Section */
+.hero{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+    flex-direction:column;
+}
+
+.hero h1{
+    font-size:50px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:18px;
+    max-width:600px;
+    margin-bottom:30px;
+}
+
+.hero button{
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    background:#ffd369;
+    color:#1e3c72;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+.hero button:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 15px #ffd369;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    nav{
+        padding:15px 20px;
+    }
+    nav ul{
+        gap:15px;
+    }
+    .hero h1{
+        font-size:35px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">🎓 StudentMS</div>
+    <ul>
+        <li><a href="add_page">Add Student</a></li>
+        <li><a href="{% url "student" %}">View Students</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <h1>Welcome to Student Management System</h1>
+    <p>Manage student records, courses, attendance, and performance efficiently with our modern and secure platform.</p>
+    <a href="{% url "student" %}">
+        <button>View Students</button>
+    </a>
+</section>
+
+</body>
+</html>

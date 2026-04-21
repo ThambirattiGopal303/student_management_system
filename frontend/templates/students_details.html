@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Table</title>
+
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #6eaae7;
+            margin: 0;
+            padding: 40px;
+        }
+
+        table{
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        th{
+            background-color: #343a40;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td{
+            padding: 10px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        tr:hover{
+            background-color: #f1f3f5;
+        }
+
+        a{
+            text-decoration: none;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .update-btn{
+            background-color: #0d6efd;
+            color: white;
+        }
+
+        .delete-btn{
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .update-btn:hover{
+            background-color: #0b5ed7;
+        }
+
+        .delete-btn:hover{
+            background-color: #bb2d3b;
+        }
+    </style>
+
+</head>
+<body>
+
+    <table>
+        <tr>
+            <th>NAME</th>
+            <th>GENDER</th>
+            <th>COURSE</th>
+            <th>CITY</th>
+            <th colspan="2">Actions</th>
+        </tr>
+
+     
+{% for i in data %}
+        <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.gender}}</td>
+            <td>{{i.course}}</td>
+            <td>{{i.city}}</td>
+            <td><a href="{% url 'update_page'  i.id %}" class="update-btn">Update</a></td>
+            <td><a href="{% url 'delete_student' i.id%}" class="delete-btn">Delete</a></td>
+        </tr>
+{% endfor %}
+    </table><br><br><br>
+<center><a href="" style="color: white;background-color:black;padding:10px 20px;">Add Student</a></center>
+</body>
+</html>
